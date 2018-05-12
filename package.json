@@ -1,0 +1,27 @@
+{
+  "name": "hello-backbonejs",
+  "version": "1.0.0",
+  "description": "A sample backbonejs application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PareshRadadiya/hello-backbonejs.git"
+  },
+  "keywords": [
+    "backbonejs"
+  ],
+  "author": "Paresh Radadiya",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/PareshRadadiya/hello-backbonejs/issues"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "underscore": "^1.9.0",
+    "backbone": "^1.3.3"
+  },
+  "homepage": "https://github.com/PareshRadadiya/hello-backbonejs#readme"
+}
