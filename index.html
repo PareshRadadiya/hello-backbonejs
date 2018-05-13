@@ -13,6 +13,7 @@
 <div id="main">
     <!-- This is where our Backbone app will go -->
     <div class="catch-of-the-day">
+
         <div class="menu">
             <header class="top">
                 <h1>Catch
@@ -26,29 +27,55 @@
             </header>
             <ul class="list-of-fishes">
             </ul>
-        </div>
+        </div><!-- Menu Wrapper -->
+
         <div class="order-wrap">
             <h2>Your Orders</h2>
-        </div>
-        <div>
+        </div><!-- Order Wrapper -->
+
+        <div class="inventory-wrap">
             <h2>Inventory</h2>
-        </div>
-    </div>
-</div>
+            <div class="fish-edit-wrap"></div>
+            <form action="" class="fish-edit">
+                <input type="text" placeholder="Fish Name"/>
+                <input type="text" placeholder="Fish Price"/>
+                <select name="" id="">
+                    <option value="available">fresh</option>
+                    <option value="unavailable">sold out</option>
+                </select>
+                <input type="text" placeholder="Fish Desc"/>
+                <input type="text" placeholder="Fish Image"/>
+                <button type="submit">Add Item</button>
+            </form>
+        </div><!-- Inventory Wrapper -->
+
+    </div><!-- catch-of-the-day -->
+
+</div><!-- #main -->
+
 <script type="text/template" id="list-item-template">
-    <li class="menu-fish">
-        <img src="<%= image %>" alt="<%= name %>"/>
-        <h3 class="fish-name">
-            <%- name %>
-            <span class="price"><% formatPrice(price) %></span>
-        </h3>
-        <p><%- desc %></p>
-        <button
-        <%= status !== 'available' ? 'disabled' : ''  %>
-        >
-            <%= status == 'available' ? 'Add to Cart' : 'Sold Out' %>
-        </button>
-    </li>
+    <img src="<%= image %>" alt="<%= name %>"/>
+    <h3 class="fish-name">
+        <%- name %>
+        <span class="price"><%= formatPrice(price) %></span>
+    </h3>
+    <p><%- desc %></p>
+    <button
+    <%= status !== 'available' ? 'disabled' : ''  %>
+    >
+        <%= status == 'available' ? 'Add to Cart' : 'Sold Out' %>
+    </button>
+</script>
+<script type="text/template" id="fish-edit-template">
+    <input type="text" name="name"  value="<%- name %>" placeholder="Fish Name"/>
+    <input type="text" name="price" value="<%- price %>" placeholder="Fish Price"/>
+    <select name="status" value="<%- status %>">
+    <option value="available">fresh</option>
+        <option value="unavailable">sold out</option>
+    </select>
+    <input type="text" name="desc" value="<%- desc %>" placeholder="Fish Desc"/>
+    <input type="text" name="image" value="<%- image %>" placeholder="Fish Image"/>
+    <button>Remove Fish</button>
 </script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/underscore/underscore-min.js"></script>
@@ -57,7 +84,8 @@
 <script src="assets/js/sample-fishes.js"></script>
 <script src="assets/js/models/fish.js"></script>
 <script src="assets/js/collections/fishes.js"></script>
-<script src="assets/js/views/fishes-view.js"></script>
+<script src="assets/js/views/inventory-list-view.js"></script>
+<script src="assets/js/views/fish-menu-view.js"></script>
 <script src="assets/js/views/app-view.js"></script>
 <script src="assets/js/app.js"></script>
 </body>

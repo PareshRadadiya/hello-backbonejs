@@ -8,11 +8,14 @@ var app = app || {};
 	// --------------
 
 	// The DOM element for a fish item...
-	app.FishView = Backbone.View.extend({
+	app.FishMenuView = Backbone.View.extend({
+
+		tagName: 'li',
+
+		className: 'menu-fish',
 
 		// Cache the template function for a single item.
 		template: _.template($('#list-item-template').html()),
-
 
 		// The FishView listens for changes to its model, re-rendering. Since
 		// there's a one-to-one correspondence between a **Fish** and a
@@ -22,9 +25,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 		},
 
-
-
-		// Re-render the titles of the Ffsh item.
+		// Re-render the titles of the Fish item.
 		render: function () {
 			// Backbone LocalStorage is adding `id` attribute instantly after
 			// creating a model.  This causes our FishView to render twice. Once
@@ -39,7 +40,6 @@ var app = app || {};
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
 		},
-
 
 	});
 

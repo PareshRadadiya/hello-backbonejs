@@ -18,12 +18,13 @@ var app = app || {};
 		el: '#main',
 
 
-		// At initialization we bind to the relevant events on the `Todos`
+		// At initialization we bind to the relevant events on the `Fihes`
 		// collection, when items are added or changed. Kick things off by
-		// loading any preexisting todos that might be saved in *localStorage*.
+		// loading preexisting fishes that might be saved in *localStorage*.
 		initialize: function () {
 
-			this.$list = $('.list-of-fishes');
+			this.$fish_menu = $('.list-of-fishes');
+			this.$inventory_list = $('.fish-edit-wrap');
 
 			this.listenTo(app.fishes, 'reset', this.addAll);
 			this.listenTo(app.fishes, 'all', _.debounce(this.render, 0));
@@ -34,22 +35,25 @@ var app = app || {};
 			app.fishes.reset(sampleFishes);
 		},
 
-		// Add a single todo item to the list by creating a view for it, and
+		// Add a single fish item to the list by creating a view for it, and
 		// appending its element to the `<ul>`.
 		addOne: function (fish) {
-			var view = new app.FishView({ model: fish });
-			this.$list.append(view.render().el);
+
+			// Render Menu item
+			var fishMenuView = new app.FishMenuView({ model: fish });
+			this.$fish_menu.append(fishMenuView.render().el);
+
+			// Render Inventory item
+			var inventoryListView = new app.InventoryListView({ model: fish });
+			this.$inventory_list.append(inventoryListView.render().el);
 		},
 
 
 		// Add all items in the **Todos** collection at once.
 		addAll: function () {
-			this.$list.html('');
+			this.$fish_menu.html('');
 			app.fishes.each(this.addOne, this);
 		},
-
-
-
 
 	});
 
