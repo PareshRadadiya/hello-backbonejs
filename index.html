@@ -67,14 +67,14 @@
     </button>
 </script>
 <script type="text/template" id="fish-edit-template">
-    <input type="text" name="name"  value="<%- name %>" placeholder="Fish Name"/>
-    <input type="text" name="price" value="<%- price %>" placeholder="Fish Price"/>
-    <select name="status" value="<%- status %>">
+    <input type="text" name="name" class="fish-input"  value="<%- name %>" placeholder="Fish Name"/>
+    <input type="text" name="price" class="fish-input" value="<%- price %>" placeholder="Fish Price"/>
+    <select name="status" class="fish-input" value="<%- status %>">
     <option value="available">fresh</option>
         <option value="unavailable">sold out</option>
     </select>
-    <input type="text" name="desc" value="<%- desc %>" placeholder="Fish Desc"/>
-    <input type="text" name="image" value="<%- image %>" placeholder="Fish Image"/>
+    <input type="text" name="desc" class="fish-input" value="<%- desc %>" placeholder="Fish Desc"/>
+    <input type="text" name="image" class="fish-input" value="<%- image %>" placeholder="Fish Image"/>
     <button>Remove Fish</button>
 </script>
 <script src="node_modules/jquery/dist/jquery.min.js"></script>

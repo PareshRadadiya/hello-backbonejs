@@ -1,10 +1,8 @@
-
 /*global Backbone, jQuery, _, ENTER_KEY */
 var app = app || {};
 
 (function ($) {
 	'use strict';
-
 
 	// The Application
 	// ---------------
@@ -12,11 +10,11 @@ var app = app || {};
 	// Our overall **AppView** is the top-level piece of UI.
 	app.AppView = Backbone.View.extend({
 
-
 		// Instead of generating a new element, bind to the existing skeleton of
 		// the App already present in the HTML.
 		el: '#main',
 
+		// Delegated events for creating new items, and clearing completed ones.
 
 		// At initialization we bind to the relevant events on the `Fihes`
 		// collection, when items are added or changed. Kick things off by
@@ -49,13 +47,13 @@ var app = app || {};
 		},
 
 
-		// Add all items in the **Todos** collection at once.
+		// Add all items in the **Fishes** collection at once.
 		addAll: function () {
 			this.$fish_menu.html('');
+			this.$inventory_list.html('');
 			app.fishes.each(this.addOne, this);
 		},
 
 	});
-
 
 })(jQuery);

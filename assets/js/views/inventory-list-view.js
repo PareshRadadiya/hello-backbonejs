@@ -12,6 +12,10 @@ var app = app || {};
 
 		className: 'fish-edit',
 
+		events: {
+			'change .fish-input' : 'handleChange'
+		},
+
 		// Cache the template function for a single item.
 		template: _.template($('#fish-edit-template').html()),
 
@@ -30,6 +34,11 @@ var app = app || {};
 
 			this.$el.html(this.template(this.model.toJSON()));
 			return this;
+		},
+
+		handleChange: function(e) {
+
+			this.model.set( e.target.name, e.target.value );
 		},
 
 	});
